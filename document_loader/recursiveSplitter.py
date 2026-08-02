@@ -1,7 +1,7 @@
 import os
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_text_splitters import TokenTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from dotenv import load_dotenv
 from langchain_mistralai import ChatMistralAI
 
@@ -10,7 +10,7 @@ file_path = os.path.join(os.path.dirname(__file__), 'ch11.pdf')
 data = PyPDFLoader(file_path)
 docs = data.load()
 
-splitter = TokenTextSplitter(
+splitter = RecursiveCharacterTextSplitter(
   chunk_size = 100,
   chunk_overlap=10
 )
