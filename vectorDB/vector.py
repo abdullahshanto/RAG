@@ -19,3 +19,10 @@ vectorStore = Chroma.from_documents(
   embedding = embeddings,
   persist_directory = "chroma-db"
 )
+
+# to retrieve data from chroma db we need retrievers
+
+result = vectorStore.similarity_search("what is used for data analysis",k=1) #k= how many documents i wanna get
+
+for i in result:
+  print(i.page_content)
