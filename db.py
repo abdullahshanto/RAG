@@ -8,7 +8,7 @@ import os
 
 load_dotenv()
 
-file_path = os.path.join(os.path.dirname(__file__), './document_loader/ch11.pdf')
+file_path = os.path.join(os.path.dirname(__file__), './document_loader/CN.pdf')
 data = PyPDFLoader(file_path)
 docs = data.load()
 
@@ -22,7 +22,7 @@ chunks = splitter.split_documents(docs)
 
 embeddings= MistralAIEmbeddings()
 vectorStore = Chroma.from_documents(
-  documents = docs,
+  documents = chunks,
   embedding = embeddings,
   persist_directory = "chroma-db"
 )
