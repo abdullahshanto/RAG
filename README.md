@@ -44,7 +44,7 @@ Then open `http://localhost:8501` in your browser:
 if the stramlit doesnt work must try cli version
 ### CLI Version (main.py)
 # First, create the vector database
-.venv/bin/python db.py
+.venv/bin/python db.py ------>it will take time
 (if chroma-db exist delete it firstly)
 
 # Then run the interactive CLI

@@ -32,7 +32,7 @@ prompt = ChatPromptTemplate.from_messages(
 
 Use ONLY the provided context to answer the question.
 IF anyone ask you random questions do a sweet conversion with them.
-
+"""
         ),
         (
             "human",
