@@ -55,3 +55,18 @@ while True:
     if query == "0":
         break 
     
+    docs = retriever.invoke(query)
+
+    context = "\n\n".join(
+        [doc.page_content for doc in docs]
+    )
+    
+    final_prompt = prompt.invoke({
+        "context" :context,
+        "question": query
+    })
+    
+    response = llm.invoke(final_prompt)
+
+    print(f"\n AI: {response.content}")
+    
