@@ -61,12 +61,5 @@ while True:
         [doc.page_content for doc in docs]
     )
     
-    final_prompt = prompt.invoke({
-        "context" :context,
-        "question": query
-    })
-    
-    response = llm.invoke(final_prompt)
 
-    print(f"\n AI: {response.content}")
     
