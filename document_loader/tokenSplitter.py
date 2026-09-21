@@ -17,8 +17,12 @@ splitter = TokenTextSplitter(
 chunk=splitter.split_documents(docs)
 
 
-
-
+template = ChatPromptTemplate.from_messages(
+  [
+    ("system","note down the important topic serially"),
+    ("human","{chunk}")
+  ]
+)
 model = ChatMistralAI(model = "mistral-small-2603")
 prompt = template.format_messages(chunk="\n\n".join(d.page_content for d in chunk))
 result = model.invoke(prompt)
