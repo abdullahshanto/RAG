@@ -109,21 +109,3 @@ Question:
     st.subheader("Ask Questions From the Book")
 
     query = st.text_input("Enter your question")
-
-    if query:
-
-        docs = retriever.invoke(query)
-
-        context = "\n\n".join(
-            [doc.page_content for doc in docs]
-        )
-
-        final_prompt = prompt.invoke({
-            "context": context,
-            "question": query
-        })
-
-        response = llm.invoke(final_prompt)
-
-        st.write("### AI Answer")
-        st.write(response.content)
