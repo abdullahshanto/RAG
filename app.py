@@ -118,12 +118,4 @@ Question:
             [doc.page_content for doc in docs]
         )
 
-        final_prompt = prompt.invoke({
-            "context": context,
-            "question": query
-        })
-
-        response = llm.invoke(final_prompt)
-
-        st.write("### AI Answer")
-        st.write(response.content)
+       
